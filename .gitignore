@@ -1,0 +1,55 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.db
+*.log
+*.zip
+*.tar.gz
+*.tar.bz2
+
+# Directories
+/target/
+/bin/
+/build/
+
+# Eclipse
+.metadata/
+/bin/
+/tmp/
+/*.log
+/.settings/
+/.classpath
+/.project
+/launch/
+
+# NetBeans
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/build-impl.xml
+/private/
+/nbactions.xml
+
+# IntelliJ IDEA
+.idea/
+/*.iml
+*.iws
+
+# VSCode
+.vscode/
+
+# JRebel
+rebel.xml
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+*.out
