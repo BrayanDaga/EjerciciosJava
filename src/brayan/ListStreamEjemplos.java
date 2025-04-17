@@ -17,7 +17,7 @@ import java.util.stream.Stream;
  *
  * @author bm_vd
  */
-public class ListasEjercicios {
+public class ListStreamEjemplos {
 
     public static void main(String[] args) {
         List<String> nombres = List.of("Ana", "Luis", "Pedro");

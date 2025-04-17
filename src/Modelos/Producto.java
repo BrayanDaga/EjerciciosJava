@@ -1,4 +1,4 @@
-package brayan;
+package Modelos;
 
 public class Producto implements Comparable<Producto>{
 	private String nombre;

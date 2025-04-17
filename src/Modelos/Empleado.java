@@ -1,4 +1,4 @@
-package brayan;
+package Modelos;
 
 public class Empleado {
 	private String nombre;

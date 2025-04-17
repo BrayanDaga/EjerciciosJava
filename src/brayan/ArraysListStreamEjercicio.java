@@ -6,6 +6,7 @@ package brayan;
 
 import java.util.List;
 import java.util.Arrays;
+import java.util.Optional;
 
 /**
  *
@@ -58,12 +59,14 @@ Entrada:
 Salida esperada:
 true*/
         List<Integer> numeros = List.of(1, 3, 5, 7, 9, 10);
-        boolean hayAlgunPar = numeros.stream().anyMatch(e-> e % 2 ==0);
+        boolean hayAlgunPar = numeros.stream().anyMatch(n -> n % 2 == 0);
         System.out.println(hayAlgunPar);
 
- /*Ejercicio 5: Encuentra un nombre que empiece con 'J'
-Dada una lista de nombres, encuentra alguno que comience con la letra 'J' (si existe).*/       
-     String prueba = "asd";
+        /*Ejercicio 5: Encuentra un nombre que empiece con 'J'
+Dada una lista de nombres, encuentra alguno que comience con la letra 'J' (si existe).*/
+        List<String> nombres2 = List.of("Pedro", "Julia", "Marcos", "Javier");
+        Optional<String> nombreconJ = nombres2.stream().filter(e -> e.startsWith("J")).findFirst();
+        System.out.println(nombreconJ.orElse("No se encontraron nombres con J"));
     }
 
     public static void imprimirLista(List lista) {

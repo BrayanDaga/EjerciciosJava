@@ -1,5 +1,7 @@
 package brayan;
 
+import Modelos.Empresa;
+import Modelos.Empleado;
 import java.util.ArrayList;
 import java.util.Scanner;
 
