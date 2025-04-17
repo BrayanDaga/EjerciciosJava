@@ -1,6 +1,6 @@
 package brayan;
 
-public class Producto {
+public class Producto implements Comparable<Producto>{
 	private String nombre;
 	private String codigo;
 	private int precio;
@@ -45,5 +45,11 @@ public class Producto {
 	public String toString() {
 		return "Producto: "+nombre+", con codigo: "+codigo+", precio: "+precio ;
 	}
-	
-}
+
+    @Override
+    public int compareTo(Producto otroprod) {
+        return Integer.compare(this.precio, otroprod.precio);
+    }
+    }
+            
+        
