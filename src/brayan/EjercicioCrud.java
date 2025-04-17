@@ -30,7 +30,7 @@ public class EjercicioCrud {
                             System.out.print("Intoduce el codigo del producto: ");
                             String codigo = scanner.nextLine();
                             System.out.print("Intoduce el precio del producto: ");
-                            int precio = scanner.nextInt();
+                            double precio = scanner.nextDouble();
                             Producto newProducto = new Producto(nombre, codigo, precio);
                             productos.add(newProducto);
                             System.out.println("Producto agregado ...");
@@ -51,7 +51,7 @@ public class EjercicioCrud {
                                     Producto producto = iter.next();
                                     if (producto.getCodigo().equals(opActu)) {
                                         System.out.print("Ingrese el nuevo precio:");
-                                        int precioac = scanner.nextInt();
+                                        double precioac = scanner.nextDouble();
                                         producto.setPrecio(precioac);
                                         System.out.println("Producto Actualizado");
                                         Thread.sleep(1000);

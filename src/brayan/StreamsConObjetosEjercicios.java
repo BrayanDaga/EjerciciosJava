@@ -4,9 +4,13 @@
  */
 package brayan;
 
+import Modelos.Alumno;
 import java.util.List;
 import Modelos.Auto;
 import Modelos.Libro;
+import Modelos.Producto;
+import Modelos.Empleado;
+import java.util.Optional;
 
 /**
  *
@@ -41,7 +45,62 @@ Obtén una lista solo con los títulos de todos los libros.*/
         List<Libro> libros = List.of(new Libro("libro1", "autor1"),
                 new Libro("libro2", "autor2"),
                 new Libro("libro3", "autor3"));
-        
+        List<String> titulos = libros.stream().map(libro -> libro.getTitulo()).toList();
+        titulos.forEach(System.out::println);
+
+        /*🏆 Ejercicio 13: Alumno con mejor promedio
+Tienes una lista de Alumno:
+class Alumno {
+    private String nombre;
+    private double promedio;
+}
+Tarea:
+Encuentra el alumno que tenga el mayor promedio.*/
+        List<Alumno> alumnos = List.of(new Alumno("allumno1", 15.4),
+                new Alumno("allumno2", 18.4),
+                new Alumno("allumno3", 14.4));
+
+        Optional<Alumno> mejorAlumno = alumnos.stream().reduce((a1, a2) -> a1.getPromedio() > a2.getPromedio() ? a1 : a2);
+        mejorAlumno.ifPresent(System.out::println);
+
+        /*🍔 Ejercicio 14: Precio total del pedido
+Tienes una lista de Producto:
+
+class Producto {
+    private String nombre;
+    private String codigo;
+    private double precio;
+}
+Tarea:
+Calcula el total a pagar sumando todos los precios.*/
+        List<Producto> productos = List.of(new Producto("prod1", "cod1", 20.2),
+                new Producto("prod2", "cod2", 15.4));
+        List<Double> precios = productos.stream().map(producto-> producto.getPrecio()).toList();
+        precios.forEach(System.out::println);
+        double sumprod = productos.stream().mapToDouble(Producto::getPrecio).sum();
+      System.out.println("La suma total es :" +sumprod);
+
+        /*🎯 Ejercicio 15: Hay algún empleado senior
+Tienes una lista de Empleado:
+
+java
+Copia
+Modifica
+class Empleado {
+    private String nombre;
+    private int edad;
+}
+Tarea:
+Verifica si existe algún empleado de 60 años o más.*/
+    List<Empleado> empleados = List.of(new Empleado("empleado1", 45, 1400),
+           new Empleado("empleado2", 65, 1800),
+           new Empleado("empleado3", 55, 1600));
+    boolean algun60mayor= empleados.stream().anyMatch(empleado -> empleado.getEdad()>=60);
+        if (algun60mayor) {
+            System.out.println("Si hay uno o varios con 60 años o mas");
+        }else{
+            System.out.println("Ninguno es mayor que 60");
+        }
     }
 
 }
