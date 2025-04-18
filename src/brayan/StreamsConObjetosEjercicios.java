@@ -61,7 +61,7 @@ Encuentra el alumno que tenga el mayor promedio.*/
                 new Alumno("allumno3", 14.4));
 
         Optional<Alumno> mejorAlumno = alumnos.stream().reduce((a1, a2) -> a1.getPromedio() > a2.getPromedio() ? a1 : a2);
-        mejorAlumno.ifPresent(System.out::println);
+            mejorAlumno.ifPresent(System.out::println);
 
         /*🍔 Ejercicio 14: Precio total del pedido
 Tienes una lista de Producto:

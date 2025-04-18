@@ -29,8 +29,7 @@ De una lista de palabras, obtén una nueva lista que contenga solo aquellas
 con más de 5 letras.*/
         List<String> palabras = List.of("Hola", "Programación", "Java", "Stream", "Ejercicios", "Sol");
         List<String> mas5letras = palabras.stream().filter(e -> e.length() > 5).toList();
-        mas5letras.forEach(System.out::println);
-
+        System.out.println(mas5letras);
         /* Ejercicio 8: Concatenar nombres
 Tienes una lista de nombres. Une todos los nombres en un solo String, separados por comas.
 
