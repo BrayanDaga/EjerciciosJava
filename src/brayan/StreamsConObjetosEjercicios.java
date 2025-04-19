@@ -73,8 +73,19 @@ class Producto {
 }
 Tarea:
 Calcula el total a pagar sumando todos los precios.*/
-        List<Producto> productos = List.of(new Producto("prod1", "cod1", 20.2),
-                new Producto("prod2", "cod2", 15.4));
+        List<Producto> productos = List.of(
+                new Producto("Laptop HP", "LPT001", 850.00),
+                new Producto("MacBook Air", "LPT002", 850.00),
+                new Producto("Mouse Logitech", "MSE003", 25.99),
+                new Producto("Mouse Genius", "MSE004", 25.99),
+                new Producto("Teclado Mecánico", "KEY005", 59.50),
+                new Producto("Teclado Inalámbrico", "KEY006", 59.50),
+                new Producto("Monitor Samsung", "MON007", 189.99),
+                new Producto("Monitor LG", "MON008", 189.99),
+                new Producto("Router TP-Link", "RTR009", 45.60),
+                new Producto("Router D-Link", "RTR010", 45.60)
+        );
+
         List<Double> precios = productos.stream().map(producto-> producto.getPrecio()).toList();
         precios.forEach(System.out::println);
         
