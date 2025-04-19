@@ -77,15 +77,13 @@ Calcula el total a pagar sumando todos los precios.*/
                 new Producto("prod2", "cod2", 15.4));
         List<Double> precios = productos.stream().map(producto-> producto.getPrecio()).toList();
         precios.forEach(System.out::println);
+        
         double sumprod = productos.stream().mapToDouble(Producto::getPrecio).sum();
       System.out.println("La suma total es :" +sumprod);
 
         /*🎯 Ejercicio 15: Hay algún empleado senior
 Tienes una lista de Empleado:
-
-java
-Copia
-Modifica
+      |
 class Empleado {
     private String nombre;
     private int edad;
