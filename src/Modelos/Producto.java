@@ -4,14 +4,31 @@ public class Producto implements Comparable<Producto> {
 
     private String nombre;
     private String codigo;
-    private double precio;
+    private String categoria;
+
+    public Producto(String nombre, String categoria) {
+        this.nombre = nombre;
+        this.codigo = String.valueOf(Math.random() * 10); //aleatoria
+        this.categoria = categoria;
+        this.precio = Math.random() * 10; //aleatorio
+    }
 
     public Producto(String nombre, String codigo, double precio) {
         super();
         this.nombre = nombre;
         this.codigo = codigo;
         this.precio = precio;
+        this.categoria = "Sin categoria";
     }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    private double precio;
 
     public String getNombre() {
         return nombre;

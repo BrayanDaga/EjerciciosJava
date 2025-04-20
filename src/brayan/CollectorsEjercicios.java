@@ -5,8 +5,9 @@
 package brayan;
 
 import Modelos.Producto;
+import java.util.Arrays;
 import java.util.List;
-import java.util.IntSummaryStatistics;
+import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -83,22 +84,93 @@ clave: el precio
 valor: lista de productos que tienen ese precio*/
         Map<Double, List<Producto>> productosAgruPrecio = productos.stream().
                 collect(Collectors.groupingBy(Producto::getPrecio));
-        
-productosAgruPrecio.forEach((precio, lista) -> {
-    System.out.println("Precio: " + precio);
-    lista.forEach(System.out::println);
-});
+
+        productosAgruPrecio.forEach((precio, lista) -> {
+            System.out.println("Precio: " + precio);
+            lista.forEach(System.out::println);
+        });
         /*🎯 Ejercicio 6: Agrupar productos por primera letra
 Entrada: Lista de productos.
 Tarea: Agrupa los productos en un Map<Character, List<Producto>>, usando la primera letra del nombre.*/
-Map<Character, List<Producto>> productosAgruLetraI =  productos.stream().
-            collect(Collectors.groupingBy( producto -> producto.getNombre().charAt(0) ));
+        Map<Character, List<Producto>> productosAgruLetraI = productos.stream().
+                collect(Collectors.groupingBy(producto -> producto.getNombre().charAt(0)));
 
-productosAgruLetraI.forEach((letra, lista) -> {
-    System.out.println("Letra: " + letra);
-    lista.forEach(producto -> System.out.println("    -> " + producto));
-});
-    
+        productosAgruLetraI.forEach((letra, lista) -> {
+            System.out.println("Letra: " + letra);
+            lista.forEach(producto -> System.out.println("    -> " + producto));
+        });
+
+        /*Ejercicio 7: Contar productos baratos y caros
+Entrada: Lista de productos.
+Tarea: Usa partitioningBy para separar:
+Productos baratos (precio < 50)
+Productos caros (precio >= 50)
+
+Resultado: Map<Boolean, List<Producto>>
+         */
+        System.out.println("/*********************************************************\n/");
+        Map<Boolean, List<Producto>> productosPorPrecio50 = productos.stream().collect(
+                Collectors.partitioningBy(producto -> producto.getPrecio() < 50));
+
+        productosPorPrecio50.forEach((valor, lista) -> {
+            System.out.println("Menores de 50 : " + valor);
+            lista.forEach(producto -> System.out.println("    -> " + producto));
+        });
+
+        /*🏅 Ejercicio 8: Sumar precios por categoría
+Supongamos que ahora Producto tiene categoría:
+
+class Producto {
+    private String nombre;
+    private String categoria;
+    private double precio;
+}
+        
+Entrada: Lista de productos.
+Tarea: Agrupa los productos por categoria y suma el total de precios por categoría.
+         */
+        System.out.println("/*********************************************************\n/");
+
+        List<Producto> productos2 = List.of(
+                new Producto("Laptop HP", "Tecnología"),
+                new Producto("MacBook Air", "Tecnología"),
+                new Producto("Mouse Logitech", "Accesorios"),
+                new Producto("Mouse Genius", "Accesorios"),
+                new Producto("Teclado Mecánico", "Accesorios"),
+                new Producto("Teclado Inalámbrico", "Accesorios"),
+                new Producto("Monitor Samsung", "Tecnología"),
+                new Producto("Monitor LG", "Tecnología"),
+                new Producto("Router TP-Link", "Redes"),
+                new Producto("Router D-Link", "Redes")
+        );
+
+        Map<String, Double> sumaPorCategoria = productos2.stream()
+                .collect(Collectors.groupingBy(
+                        Producto::getCategoria, // agrupar por categoria
+                        Collectors.summingDouble(Producto::getPrecio) // sumar precios de cada grupo
+                ));
+
+        sumaPorCategoria.forEach((categoria, suma) -> {
+            System.out.println("Categoría: " + categoria + " -> Total: " + suma);
+        });
+
+        /*🎲 Ejercicio 9: Crear resumen de precios
+Entrada: Lista de precios [10.5, 20.0, 35.8]
+Tarea: Usa summarizingDouble para obtener:
+cantidad
+suma
+promedio
+mínimo
+máximo
+         */
+        System.out.println("/*********************************************************\n/");
+
+        Double[] myArr = {10.5, 20.0, 35.8};
+        List<Double> precios = Arrays.asList(myArr);
+
+        DoubleSummaryStatistics stadi = precios.stream().collect(
+                Collectors.summarizingDouble(precio -> precio));
+
+        System.out.println(stadi);
     }
-
 }
