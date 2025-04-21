@@ -21,6 +21,14 @@ public class Producto implements Comparable<Producto> {
         this.categoria = "Sin categoria";
     }
 
+    public Producto(String nombre, String codigo, String categoria, double precio) {
+        super();
+        this.nombre = nombre;
+        this.codigo = codigo;
+        this.categoria = categoria;
+        this.precio = precio;
+    }
+
     public String getCategoria() {
         return categoria;
     }
