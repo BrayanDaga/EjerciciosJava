@@ -117,9 +117,11 @@ Ahora, cuenta cuántos productos hay por cada categoría.*/
                 new Producto("Router TP-Link", "COD369", "Redes", 500.0),
                 new Producto("Router D-Link", "COD852", "Redes", 600.0)
         );
-        Map<String, Long> produMapCategoria = productos.stream().collect(
-                Collectors.groupingBy(Producto::getCategoria, Collectors.counting())
-        );
+        Map<String, Long> produMapCategoria = productos.stream().collect(Collectors.groupingBy(
+                Producto::getCategoria,
+                Collectors.counting()
+        ));
+                
         System.out.println(produMapCategoria);
         System.out.println("*************************************************************");
 
@@ -147,7 +149,7 @@ Concatena todos los códigos en un solo String separados por "|", así:
 COD123|COD456|COD789
 👊🏻 ¡Listo, ahí tienes los 10 RETOS!*/
         System.out.println("🎯 Reto 10 (BONUS): Concatenar códigos de productos");
-   String productoString = productos.stream().map(producto->producto.getCodigo()).collect(Collectors.joining("|"));
-        System.out.println(productoString);
+        String codigosString =  productos.stream().map(Producto::getCodigo).collect(Collectors.joining("|"));
+        System.out.println(codigosString);
     }
 }
