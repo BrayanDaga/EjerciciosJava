@@ -14,7 +14,7 @@ import java.util.Arrays;
  * @author bm_vd
  */
 public class Nivel1 {
-    
+
     public static void main(String[] args) {
         /*
 Ejercicio 1: static
@@ -22,7 +22,7 @@ Crea una clase ContadorObjetos que tenga:
 Una variable static para contar cuántos objetos se crean.
 Cada vez que crees un objeto, incrementa el contador.
 Un método static que imprima cuántos objetos se han creado.*/
-        
+
         new ContadorObjetos();
         new ContadorObjetos();
         new ContadorObjetos();
@@ -52,9 +52,9 @@ Imprime la matriz en formato tabla.*/
             {4, 5, 6},
             {7, 8, 9}
         };
-        
+
         for (int i = 0; i < miMatriz.length; i++) {
-            
+
             for (int j = 0; j < miMatriz[i].length; j++) {
                 System.out.print(miMatriz[i][j] + " ");
             }
@@ -73,10 +73,10 @@ Imprime el resultado después de cada operación.*/
         int[] myArray2 = {4, 6, 3, 2, 1, 7, 9, 2};
         System.out.println(Arrays.toString(myArray2));
         Arrays.sort(myArray2);
-System.out.println(Arrays.toString(myArray2));
+        System.out.println(Arrays.toString(myArray2));
         Arrays.fill(myArray2, 0);
-System.out.println(Arrays.toString(myArray2));
-        
+        System.out.println(Arrays.toString(myArray2));
+
         /*
 Ejercicio 5: sobrecarga
 Crea una clase Calculadora.
@@ -84,22 +84,21 @@ Implementa métodos sumar para:
 Dos enteros.
 Dos doubles.
 Tres enteros.*/
-  
         Calculadora calc = new Calculadora();
-        System.out.println(calc.sumar(4, 5));  
-        System.out.println(calc.sumar(4.50, 5.50));  
-        System.out.println(calc.sumar(1,2,3,4,5,6,7));  
-        
-        
-/*        
+        System.out.println(calc.sumar(4, 5));
+        System.out.println(calc.sumar(4.50, 5.50));
+        System.out.println(calc.sumar(1, 2, 3, 4, 5, 6, 7));
+
+        /*        
 Ejercicio 6: JavaDoc
 Documenta tu clase Calculadora con JavaDoc:
 
 Explica qué hace la clase.
 
 Documenta cada método de suma indicando parámetros y valor de retorno.*/
-    /***
-     * Ver archivo Calculadora.java
-     */
+        /**
+         * *
+         * Ver archivo Calculadora.java
+         */
     }
 }
