@@ -9,6 +9,7 @@ import Modelos.Contenedor;
 import Modelos.Pila;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class GenericsEjercicios {
 
@@ -62,25 +63,49 @@ public class GenericsEjercicios {
         Comparable[] arr1 = {1, 2, 3, 4};
         Comparable[] arr2 = {"uno", "dos", "tres", "cuatro"};
         System.out.println(encontrarMax(arr1));
-        System.out.println(encontrarMax(arr2));
         System.out.println(encontrarMin(arr2));
-       
-        
+        System.out.println(encontrarMin(arr2));
+
         /*🧮 Método sumaNumeros
         Crea un método que reciba una lista de cualquier tipo que extienda Number y retorne la suma.*/
-        Integer[] arrInt = {1,2,3,4,5,6};
+        Integer[] arrInt = {1, 2, 3, 4, 5, 6};
         System.out.println(sumarNum(arrInt));
+
+        /*Wildcard flexible
+        Crea una función que imprima cualquier lista (List<?>) y otra que solo acepte List<? extends Number>.*/
+        List<String> lista1 = List.of("a", "b", "c", "d", "e");
+        List<Integer> lista2 = List.of(1, 2, 3, 4, 5);
+        imprimirLista(lista1);
+        imprimirLista(lista2);
+        imprimirListaNumber(lista2);
+        //imprimirListaNumber(lista1); <- No se puede porque no es number
+
     }
 
     public static <T extends Comparable<T>> T encontrarMax(T[] arr) {
-
         return (T) Arrays.stream(arr).max(Comparator.naturalOrder()).orElse(null);
     }
 
     public static <T extends Comparable<T>> T encontrarMin(T[] arr) {
         return (T) Arrays.stream(arr).min(Comparator.naturalOrder()).orElse(null);
     }
+
     public static <T extends Number> double sumarNum(T[] arr) {
         return Arrays.stream(arr).mapToDouble(Number::doubleValue).sum();
+    }
+
+    private static void imprimirLista(List<?> lista) {
+        /* for (Object ele : lista) {
+            System.out.println(ele);
+        }*/
+        System.out.println(lista);
+
+    }
+
+    private static void imprimirListaNumber(List<? extends Number> lista) {
+        /*  for (Object ele : lista) {
+            System.out.println(ele);
+        }*/
+        System.out.println(lista);
     }
 }
