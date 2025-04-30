@@ -4,6 +4,8 @@
  */
 package brayan;
 
+import Modelos.Alumno;
+import Modelos.Comparador;
 import Modelos.Par1;
 import java.util.List;
 import java.util.Arrays;
@@ -39,6 +41,65 @@ public class GenericsEjercicios2 {
         System.out.println(elementoEncontrado(numeros,15));
         System.out.println(elementoEncontrado(vocales,"e"));
         
+        /*4. 🎚️ Comparar dos objetos
+        Crea una clase:
+        Comparador<T extends Comparable<T>>
+        Con un método:
+        int comparar(T a, T b)
+        Devuelve:
+        1 si a > b
+        -1 si a < b
+        0 si son iguales*/
+        
+      /*5. 🔁 Intercambiar elementos
+       * <T> void intercambiar(T[] arr, int i, int j)
+       * Intercambia los elementos en las posiciones i y j. */
+
+        intercambiar(numeros, 1,4);
+        System.out.println(Arrays.toString(numeros));//20, 22, 25, 18, 30
+        
+/*6. 💥 Clase Caja con Wildcard
+Crea una función:
+void mostrarCaja(Caja<?> caja)
+Debe imprimir el contenido de cualquier Caja<T>.
+
+7. 🧠 Contenedor numérico seguro
+Crea una clase:
+
+java
+Copia
+Modifica
+CajaNumerica<T extends Number>
+Con método:
+
+java
+Copia
+Modifica
+double obtenerDobleValor()
+Que retorna objeto.doubleValue() * 2.
+
+8. 🎭 Método genérico múltiple
+java
+Copia
+Modifica
+<K, V> void mostrarPar(K clave, V valor)
+Imprime el tipo y valor de ambos.
+
+9. 🧺 Filtrar lista numérica
+java
+Copia
+Modifica
+<T extends Number> List<T> filtrarMayores(List<T> lista, T limite)
+Devuelve los elementos mayores que el límite.
+
+10. 📘 Clase Registro<K, V> con wildcard
+Crea un método:
+
+java
+Copia
+Modifica
+void mostrarClaves(List<? extends Registro<K, ?>> registros)
+Para imprimir claves de cualquier lista de registros que tengan K como clave.*/
     }
 
     private static <T extends Number> double obtenerPromedio(T[] numeros) {
@@ -47,6 +108,12 @@ public class GenericsEjercicios2 {
 
     private static <T> boolean elementoEncontrado(T[] arr, T valor) {
         return Arrays.stream(arr).anyMatch(e -> e.equals(valor));
+    }
+    
+    private static <T> void intercambiar(T[] arr, int i, int j) {
+    	T aux = arr[i];
+    	arr[i] = arr[j];
+    	arr[j] = aux;
     }
 
 }

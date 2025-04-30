@@ -30,7 +30,7 @@ public class GenericsEjemplo {
         System.out.println("Valor: " + par.getValor());
 
         /* Metodo generico */
-            Util.imprimir("Texto");
+        Util.imprimir("Texto");
         Util.imprimir(456);
 
         /*Bounded Generics (extends)*/
