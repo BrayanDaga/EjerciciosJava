@@ -102,7 +102,6 @@ usa un Iterator para contar cuántas personas viven en "Lima".*/
             }
         }
         System.out.println(clientes);
-
     }
 
     private static class Cliente {

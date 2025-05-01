@@ -13,14 +13,35 @@ import java.util.regex.Pattern;
  */
 public class RegexEjemplo {
     public static void main(String[] args) {
-         String texto = "abc123";
-        Pattern pattern = Pattern.compile("\\d+");
-        Matcher matcher = pattern.matcher(texto);
+        /*✅ Ejemplo 1: Validar números enteros (positivos o negativos)*/
+        String[] pruebas1 = {"123", "-45", "+789", "abc", "12a"};
 
-        if (matcher.find()) {
-            System.out.println("Se encontró un número: " + matcher.group());
-        } else {
-            System.out.println("No se encontró número.");
+        for (String texto : pruebas1) {
+            if (texto.matches("[-+]?\\d+")) {
+                System.out.println(texto + " es un número entero válido.");
+            } else {
+                System.out.println(texto + " NO es válido.");
+            }
         }
+        /* [-+]? → Puede empezar con - o + (opcional)
+         * \\d+ → Uno o más dígitos  */
+        System.out.println("/**********************************************/");
+        
+        /*✅ Ejemplo 2: Validar números decimales*/
+        String[] pruebas2 = {"3.14", "-0.99", "10", "+2.718", "12.", ".5", "abc"};
+
+        for (String texto : pruebas2) {
+            if (texto.matches("[-+]?\\d*\\.\\d+")) {
+                System.out.println(texto + " es un número decimal válido.");
+            } else {
+                System.out.println(texto + " NO es válido.");
+            }
+        }
+        
+        /*[-+]? → signo opcional
+         * \\d* → dígitos antes del punto (opcional)
+         * \\. → el punto decimal (obligatorio)
+         * \\d+ → al menos un dígito después del punto*/
+
     }
 }
